@@ -18,5 +18,26 @@ form.addEventListener("submit", (e) => {
     } else {
       console.log("success");
       msg.innerHTML = "";
+      acceptData();
+      add.setAttribute("data-bs-dismiss", "modal");
+      add.click();
+  
+      (() => {
+        add.setAttribute("data-bs-dismiss", "");
+      })();
     }
   };
+  
+  let data = [];
+
+let acceptData = () => {
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    description: textarea.value,
+  });
+
+  localStorage.setItem("data", JSON.stringify(data));
+
+  console.log(data);
+};
