@@ -35,13 +35,14 @@ let acceptData = () => {
     text: textInput.value,
     date: dateInput.value,
     description: textarea.value,
-    createTasks();
   });
 
   localStorage.setItem("data", JSON.stringify(data));
 
   console.log(data);
+  createTasks();
 };
+
 let createTasks = () => {
   tasks.innerHTML = "";
   data.map((x, y) => {
